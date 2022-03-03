@@ -4,11 +4,27 @@
 package basiclibrary;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
     @Test void someLibraryMethodReturnsTrue() {
         Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
-    }
-}
+        int entered_length=2;
+        int length=classUnderTest.roll(entered_length).size();
+        assertEquals(length,entered_length);
+        ArrayList test_arrayList=new ArrayList();
+        test_arrayList.add(1);
+        test_arrayList.add(2);
+        test_arrayList.add(3);
+        test_arrayList.add(4);
+        test_arrayList.add(5);
+        assertEquals(false,classUnderTest.containsDuplicates(test_arrayList));
+        test_arrayList.add(5);
+        assertEquals(true,classUnderTest.containsDuplicates(test_arrayList));
+        assertEquals(20.0/6.0,classUnderTest.average(test_arrayList));
+
+
+    }}
