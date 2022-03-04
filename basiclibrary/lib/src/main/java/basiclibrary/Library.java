@@ -59,8 +59,9 @@ public class Library {
         return sum/array.size();
     }
 
-    public static double lowestAverage(int [][]array){
+    public static int [] lowestAverage(int [][]array){
         double lowestAverage=1000;
+        int index=0;
         for(int i=0;i<array.length;i++){
             double sum=0;
             for(int j=0;j<array[i].length;j++){
@@ -68,10 +69,15 @@ public class Library {
                 if(j==array[i].length-1){
                     if(sum/array[i].length<lowestAverage){
                         lowestAverage=sum/array[i].length;
+                        index=i;
                     }
                 }
             }
         }
-        return lowestAverage;
+        int result[]=new int[array[index].length];
+        for(int m=0;m<array[index].length;m++){
+            result[m]=array[index][m];
+        }
+        return result;
     }
 }
