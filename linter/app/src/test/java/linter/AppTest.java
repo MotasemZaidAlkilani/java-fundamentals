@@ -4,11 +4,34 @@
 package linter;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    App classUnderTest = new App();
+    @Test void noErrorTest() {
+        File noErrorFile=new File("build/resources/main/noError.js");
+        classUnderTest.linter(noErrorFile);
+    }
+    @Test void oneErrorTest() {
+        File oneErrorFile=new File("build/resources/main/oneError.js");
+        classUnderTest.linter(oneErrorFile);
+    }
+    @Test void fewErrorsTest() {
+        File fewErrorsFile=new File("build/resources/main/fewError.js");
+        classUnderTest.linter(fewErrorsFile);
+
+    }
+    @Test void manyErrorTest() {
+        File manyErrorsFile=new File("build/resources/main/manyErrors.js");
+        classUnderTest.linter(manyErrorsFile);
+
+    }
+    @Test void emptyErrorsTest() {
+        File emptyErrorFile=new File("app/build/resources/main/emptyFile.js");
+        classUnderTest.linter(emptyErrorFile);
+
     }
 }
