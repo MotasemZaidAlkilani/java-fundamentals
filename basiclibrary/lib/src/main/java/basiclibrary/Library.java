@@ -19,6 +19,7 @@ public class Library {
                 {65, 56, 55, 52, 55, 62, 57}
         };
         System.out.println(lowestAverage(weeklyMonthTemperatures));
+
         System.out.println("\n"+"analyzeWeatherData"+"\n"+"----------");
         System.out.println(analyzeWeatherData(weeklyMonthTemperatures));
         List<String> votes = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Library {
         votes.add("Bush");
         System.out.println("\n"+"analyzeWeatherData"+"\n"+"----------");
         System.out.println(tally(votes));
+
     }
     public static ArrayList roll(int n){
         Random rand=new Random();
@@ -72,8 +74,9 @@ public class Library {
         return sum/array.size();
     }
 
-    public static double lowestAverage(int [][]array){
+    public static int [] lowestAverage(int [][]array){
         double lowestAverage=1000;
+        int index=0;
         for(int i=0;i<array.length;i++){
             double sum=0;
             for(int j=0;j<array[i].length;j++){
@@ -81,11 +84,16 @@ public class Library {
                 if(j==array[i].length-1){
                     if(sum/array[i].length<lowestAverage){
                         lowestAverage=sum/array[i].length;
+                        index=i;
                     }
                 }
             }
         }
-        return lowestAverage;
+        int result[]=new int[array[index].length];
+        for(int m=0;m<array[index].length;m++){
+            result[m]=array[index][m];
+        }
+        return result;
     }
     public static String analyzeWeatherData(int [][] array){
         String result="";
