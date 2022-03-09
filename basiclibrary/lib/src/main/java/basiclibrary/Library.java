@@ -48,7 +48,6 @@ public class Library {
     }
 
     public static boolean containsDuplicates(ArrayList array){
-        System.out.println(array);
         boolean result=false;
         boolean statue=false;
         for(int i=0;i< array.size();i++){
@@ -99,10 +98,11 @@ public class Library {
                 if(array[i][j]>max){
                    max=array[i][j];
                 }
-                else if(array[i][j]<min){
+                if(array[i][j]<min){
                   min= array[i][j];
 
                 }
+
             }
         }
         result=max+"\n"+min+"\n";
