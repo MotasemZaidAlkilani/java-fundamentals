@@ -20,6 +20,7 @@ public class Library {
         };
         System.out.println(lowestAverage(weeklyMonthTemperatures));
 
+
         System.out.println("\n"+"analyzeWeatherData"+"\n"+"----------");
         System.out.println(analyzeWeatherData(weeklyMonthTemperatures));
         List<String> votes = new ArrayList<>();
