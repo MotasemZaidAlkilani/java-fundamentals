@@ -10,21 +10,58 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        int entered_length=2;
-        int length=classUnderTest.roll(entered_length).size();
-        assertEquals(length,entered_length);
-        ArrayList test_arrayList=new ArrayList();
-        test_arrayList.add(1);
-        test_arrayList.add(2);
-        test_arrayList.add(3);
-        test_arrayList.add(4);
-        test_arrayList.add(5);
-        assertEquals(false,classUnderTest.containsDuplicates(test_arrayList));
-        test_arrayList.add(5);
-        assertEquals(true,classUnderTest.containsDuplicates(test_arrayList));
-        assertEquals(20.0/6.0,classUnderTest.average(test_arrayList));
+
+    Library sample = new Library();
+
+    @Test void testRollMethod() {
+        int expected_length=5;
+        assertEquals(expected_length,sample.roll(expected_length).size());
+    }
+    @Test void testContainsDuplicatesMethod(){
+     ArrayList list=new ArrayList();
+     list.add(1);
+     list.add(2);
+     list.add(3);
+     assertFalse(sample.containsDuplicates(list));
+     list.add(1);
+     assertTrue(sample.containsDuplicates(list));
 
 
-    }}
+    }
+    @Test void testAverageMethod(){
+        ArrayList list=new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        double expected=6/3;
+        assertEquals(expected,sample.average(list));
+        double wrongValue=6/2;
+        assertNotEquals(wrongValue,sample.average(list));
+
+    }
+    @Test void testLowestAverageMethod(){
+        int [][]array={{1,2,3},{4,4,4},{6,4,8}};
+        int expected=2;
+        assertEquals(expected,sample.lowestAverage(array));
+    }
+    @Test void testAnalyzeWeatherMethod(){
+        int [][]array={{1,2,3},{4,4,4},{6,4,8}};
+        String expected="8"+"\n"+"1"+"\n"+
+                "Never saw temperature: "+5+"\n"+
+                "Never saw temperature: "+7+"\n";
+        assertEquals(expected,sample.analyzeWeatherData(array));
+    }
+    @Test void testTallyMethod(){
+        ArrayList <String> array=new ArrayList<>();
+        array.add("a");
+        array.add("b");
+        array.add("c");
+        array.add("d");
+        array.add("a");
+        array.add("a");
+        String excepted="a";
+        assertEquals(excepted,sample.tally(array));
+    }
+
+}
+
