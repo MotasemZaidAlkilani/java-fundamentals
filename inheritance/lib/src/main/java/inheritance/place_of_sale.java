@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class place_of_sale implements place_of_sale_functions {
     String name;
-    int numbers_of_stars;
+    double numbers_of_stars;
     String price_category;
-    int reviews_numbers=0;
+    double reviews_numbers=0;
     String description;
     int sum_reviews=0;
     ArrayList<String> reviews= new ArrayList<>();
